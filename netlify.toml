@@ -1,0 +1,25 @@
+# Netlify 배포 설정 파일
+
+# 빌드 설정
+[build]
+command = "npm run build"
+publish = "dist"
+
+# 개발 환경 설정
+[dev]
+command = "npm run dev"
+port = 3000
+
+# 환경 변수 설정 (로컬 개발용)
+# Netlify 대시보드에서도 VITE_NEIS_API_KEY를 설정해야 합니다.
+[env.development]
+VITE_NEIS_API_KEY = "3aeace82f952472ab2151a44cf0e736b"
+
+[env.production]
+# 배포 시 실제 API 키로 변경 (Netlify UI에서 설정)
+
+# 리다이렉트 설정 (SPA를 위해 모든 경로를 index.html로 리다이렉트)
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
